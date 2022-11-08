@@ -6,22 +6,21 @@
 
 int main(int argc, char *argv[]) {
     
-    FILE* fp;
+    FILE* fp = NULL;
+    char c;
     char str[30];
     
-    fp=fopen("sample.txt","w"); //fopen
+    fp=fopen("sample.txt","r"); //fopen
     
-    printf("input a word: ");
-    scanf("%s",str);
-    fprintf(fp,"%s\n",str);
+    if(fp==NULL)
+        printf("파일을 못 열음\n");
+        
     
-    printf("input a word: ");
-    scanf("%s",str);
-    fprintf(fp,"%s\n",str);
-    
-    printf("input a word: ");
-    scanf("%s",str);
-    fprintf(fp,"%s\n",str);
+    while((c=fgetc(fp))!= EOF) //문자변수= fgetc(파일포인터) 
+            putchar(c); 
+            
+    //while(fgets(str,30,fp) != NULL)
+            //printf("%s",str);
     
     fclose(fp); //fclose
     
